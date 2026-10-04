@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة خاصة لـ هدير كمال</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #ffd700;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: #bbb;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .error-msg {
+            color: #ff6b6b;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* ستايل شاشة الهدية والمحتوى الجميل */
+        .gift-section {
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .art-badge {
+            display: inline-block;
+            background: #d4af37;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .message-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            line-height: 1.8;
+            font-size: 15px;
+            border-right: 4px solid #ffd700;
+        }
+
+        .flowers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .flower-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 28px;
+            transition: 0.3s;
+        }
+
+        .flower-card:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .flower-name {
+            font-size: 11px;
+            color: #ddd;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- قسم التحقق الأمني والشرط -->
+        <div id="login-section">
+            <h2>✨ بوابة المفاجآت الفنية ✨</h2>
+            <p style="margin-bottom: 20px; font-size: 14px; color: #ccc;">أدخلي اسمك السداسي/الثنائي وسنك لفتح الهدية الخاصة:</p>
+            
+            <div class="input-group">
+                <label>الاسم:</label>
+                <input type="text" id="nameInput" placeholder="اكتبي اسمك هنا...">
+            </div>
+
+            <div class="input-group">
+                <label>السن:</label>
+                <input type="number" id="ageInput" placeholder="اكتبي سنك...">
+            </div>
+
+            <button onclick="checkCredentials()">دخول الهدية 🎁</button>
+            <div id="errorMsg" class="error-msg"></div>
+        </div>
+
+        <!-- قسم الرسالة والورد (يظهر بعد التحقق الناجح) -->
+        <div id="giftSection" class="gift-section">
+            <div class="art-badge">🎨 قسم الزخرفة والفن الإبداعي</div>
+            <h2>أهلاً وسهلاً بكي يا هدير! 🌟</h2>
+            
+            <div class="message-box">
+                "إلى الفنانة الرائعة والمبدعة <b>هدير كمال</b>، 
+                أتمنى لكِ كل التوفيق في دراستكِ بقسم الزخرفة، وأن تملئي حياتكِ ألواناً وأعمالاً فنية مبهجة تليق بذوقكِ الرفيع. دمتي متميزة ومتألقة دائماً!" ✨🌹
+            </div>
+
+            <p style="font-size: 14px; color: #ffd700; margin-top: 15px;">هدية خاصة (جروب الورد الفني):</p>
+            
+            <div class="flowers-grid">
+                <div class="flower-card">
+                    🌹
+                    <div class="flower-name">جوري أحمر</div>
+                </div>
+                <div class="flower-card">
+                    🌷
+                    <div class="flower-name">توليب فني</div>
+                </div>
+                <div class="flower-card">
+                    🌻
+                    <div class="flower-name">تباع الشمس</div>
+                </div>
+                <div class="flower-card">
+                    🌸
+                    <div class="flower-name">زهرة رقيقة</div>
+                </div>
+                <div class="flower-card">
+                    💐
+                    <div class="flower-name">باقة زخرفية</div>
+                </div>
+                <div class="flower-card">
+                    🌺
+                    <div class="flower-name">وردة نادرة</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkCredentials() {
+            const name = document.getElementById('nameInput').value.trim();
+            const age = document.getElementById('ageInput').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            // الشرط: الاسم لازم يكون "هدير كمال" (يقبل الحروف الكبيرة/الصغيرة والمسافات الزائدة البسيطة) والسن "18"
+            if (name === "هدير كمال" && age === "18") {
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('giftSection').style.display = 'block';
+            } else {
+                errorMsg.textContent = "⚠️ عذراً! تأكدي من كتابة الاسم بدقة (هدير كمال) والسن (18) لفتح الهدية.";
+            }
+        }
+    </script>
+
+</body>
+</html>
